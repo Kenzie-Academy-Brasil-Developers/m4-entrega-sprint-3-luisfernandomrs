@@ -1,4 +1,4 @@
-import database from "../../database";
+import { database } from "../../database";
 import AppError from "../../errors/appError";
 
 const deleteCategoryFromDataService = async (categoryDeleteId) => {

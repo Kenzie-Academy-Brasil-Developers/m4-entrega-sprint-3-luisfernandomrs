@@ -20,6 +20,6 @@ categoriesRoutes.post(
 );
 categoriesRoutes.get("", listAllsCategoriesController);
 categoriesRoutes.get("/:id", returnsDataFromACategoryController);
-categoriesRoutes.patch("/:id", updatedCategoryDataController);
+categoriesRoutes.patch("/:id", validateDataMiddleware(createCategoriesSerializer), updatedCategoryDataController);
 categoriesRoutes.delete("/:id", deleteCategoryFromDataController);
 export default categoriesRoutes;

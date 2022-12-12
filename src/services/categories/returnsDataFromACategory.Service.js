@@ -1,4 +1,4 @@
-import database from "../../database";
+import { database } from "../../database";
 import AppError from "../../errors/appError";
 import { returnedCategoriesSerializer } from "../../serializers/categories";
 
@@ -16,7 +16,6 @@ const returnsDataFromACategoryService = async (id) => {
   if (!categoryExists.rowCount > 0) {
     throw new AppError("category not found", 404);
   }
-
   const queryResponse = await database.query(
     `
 
