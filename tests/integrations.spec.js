@@ -7,9 +7,8 @@ let testCategory = {
 
 let testProduct = {
   name: `Produto Teste ${Math.floor(Math.random() * 10001)}`,
-  price: `${Math.floor(Math.random() * 1001)}.${
-    Math.floor(Math.random() * 90) + 10
-  }`,
+  price: `${Math.floor(Math.random() * 1001)}.${Math.floor(Math.random() * 90) + 10
+    }`,
 };
 
 describe("Testes rota /categories", () => {
@@ -94,6 +93,7 @@ describe("Testes rota /products", () => {
       `/products/category/${testCategory.id}`
     );
 
+    console.log(response.body)
     expect(response.status).toBe(200);
     expect(response.body).toHaveLength(1);
     expect(response.body[0]).toHaveProperty("category");
@@ -129,9 +129,8 @@ describe("Testando casos de erro nas rotas /categories e /products", () => {
 
   let testProduct = {
     name: `Produto Teste ${Math.floor(Math.random() * 10001)}`,
-    price: `${Math.floor(Math.random() * 1001)}.${
-      Math.floor(Math.random() * 90) + 10
-    }`,
+    price: `${Math.floor(Math.random() * 1001)}.${Math.floor(Math.random() * 90) + 10
+      }`,
   };
 
   it("Nao permite criacao de duas categorias com nomes iguais", async () => {

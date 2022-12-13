@@ -1,12 +1,11 @@
 import { database } from "../../database";
-import AppError from "../../errors/appError";
+import { AppError } from "../../errors/appError";
 import { returnedCategoriesSerializer } from "../../serializers/categories";
 
 const updatedCategoryDataService = async (name, id) => {
 
-  try {
-    const categoryExists = await database.query(
-      `
+  const categoryExists = await database.query(
+    `
               UPDATE 
                   categories
                   SET
@@ -14,14 +13,16 @@ const updatedCategoryDataService = async (name, id) => {
                   WHERE
                     id = $2
                     RETURNING *;`,
-      [name, id]
-    );
-    const returnedCAtegory = await returnedCategoriesSerializer.validate(categoryExists.rows[0])
-    return returnedCAtegory
-
-  } catch (error) {
-    throw new AppError(error, 404);
+    [name, id]
+  );
+  if (!categoryExists > 0) {
+    throw new AppError("category not found", 404)
   }
+  const returnedCAtegory = await returnedCategoriesSerializer.validate(categoryExists.rows[0])
+
+
+  return returnedCAtegory
+
 
 
   // const categoryExists = await database.query(
@@ -62,7 +63,6 @@ const updatedCategoryDataService = async (name, id) => {
   //   queryResponse.rows[0]
   // );
 
-  return returnedCategories;
 };
 
 export { updatedCategoryDataService };

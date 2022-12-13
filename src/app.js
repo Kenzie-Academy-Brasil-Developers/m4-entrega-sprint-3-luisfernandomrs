@@ -1,8 +1,8 @@
 import "express-async-errors";
 import express from "express";
 import categoriesRoutes from "./routes/categories/categories.routes";
-import AppError from "./errors/appError";
-import dealWithAppError from "./middlewares/dealWithAppError.middleware";
+import { AppError, dealWithAppError } from "./errors/appError";
+
 import productsRoutes from "./routes/products/product.routes";
 
 const app = express();

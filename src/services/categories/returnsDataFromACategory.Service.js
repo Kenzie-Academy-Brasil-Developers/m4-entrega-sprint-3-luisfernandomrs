@@ -1,5 +1,5 @@
 import { database } from "../../database";
-import AppError from "../../errors/appError";
+import { AppError } from "../../errors/appError";
 import { returnedCategoriesSerializer } from "../../serializers/categories";
 
 const returnsDataFromACategoryService = async (id) => {

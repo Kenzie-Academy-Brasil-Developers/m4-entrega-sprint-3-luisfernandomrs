@@ -6,3 +6,5 @@ app.listen(3000, async () => {
     await startDatabase();
     console.log("Server running");
 });
+
+module.exports = app

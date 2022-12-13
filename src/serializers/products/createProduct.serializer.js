@@ -2,19 +2,29 @@ import * as yup from "yup"
 
 const createProductSerializer = yup.object().shape({
     name: yup.string().max(200).required(),
-    price: yup.number().positive().min(1).max(8).required(),
-    category_id: yup.number
+    price: yup.number().required(),
+    category_id: yup.number()
 })
 
 const returnedProductSerializer = yup.object().shape({
-    id: yup.number,
-    name: yup.string,
-    price: yup.number,
-    category_id: yup.number
+    id: yup.string(),
+    name: yup.string(),
+    price: yup.string(),
+    category_id: yup.number().nullable()
+})
+const updateProductSerializer = yup.object().shape({
+    name: yup.string().max(200).notRequired(),
+    price: yup.string().notRequired(),
 })
 
-const listAllProductsSerializer = yup.array(returnedProductSerializer)
+const ReturnProductCategoty = yup.object().shape({
+    name: yup.string(),
+    price: yup.string(),
+    category: yup.string()
+})
+
+const listProductsSerializer = yup.array(returnedProductSerializer)
+const listReturnProductCategoty = yup.array(ReturnProductCategoty)
 
 
-
-export { createProductSerializer, returnedProductSerializer, listAllProductsSerializer }
+export { createProductSerializer, returnedProductSerializer, listProductsSerializer, updateProductSerializer, listReturnProductCategoty }

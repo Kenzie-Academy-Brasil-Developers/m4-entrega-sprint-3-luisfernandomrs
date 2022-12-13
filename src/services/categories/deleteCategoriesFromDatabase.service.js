@@ -1,5 +1,5 @@
 import { database } from "../../database";
-import AppError from "../../errors/appError";
+import { AppError } from "../../errors/appError";
 
 const deleteCategoryFromDataService = async (categoryDeleteId) => {
   const categoryExists = await database.query(

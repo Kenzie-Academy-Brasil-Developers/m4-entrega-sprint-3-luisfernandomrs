@@ -13,11 +13,7 @@ import { createCategoriesSerializer } from "../../serializers/categories";
 
 const categoriesRoutes = Router();
 
-categoriesRoutes.post(
-    "",
-    validateDataMiddleware(createCategoriesSerializer),
-    createCategoriesController
-);
+categoriesRoutes.post("", createCategoriesController);
 categoriesRoutes.get("", listAllsCategoriesController);
 categoriesRoutes.get("/:id", returnsDataFromACategoryController);
 categoriesRoutes.patch("/:id", validateDataMiddleware(createCategoriesSerializer), updatedCategoryDataController);
