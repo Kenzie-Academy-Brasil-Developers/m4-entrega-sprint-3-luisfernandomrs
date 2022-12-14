@@ -9,7 +9,7 @@ const deleteProductService = async (productId) => {
 		    id = $1;`, [productId]
     )
 
-    return queryDeleteProduct.rows[0]
+    return {}
 }
 
 export { deleteProductService }

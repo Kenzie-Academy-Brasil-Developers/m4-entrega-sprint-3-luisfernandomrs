@@ -93,7 +93,6 @@ describe("Testes rota /products", () => {
       `/products/category/${testCategory.id}`
     );
 
-    console.log(response.body)
     expect(response.status).toBe(200);
     expect(response.body).toHaveLength(1);
     expect(response.body[0]).toHaveProperty("category");
@@ -169,7 +168,7 @@ describe("Testando casos de erro nas rotas /categories e /products", () => {
 
   it("Nao permite listar uma categoria inexistente", async () => {
     const response = await request(app).get("/categories/id_test");
-
+    console.log(response.body)
     expect(response.status).toBe(404);
     expect(response.body.message).toBeDefined();
   });

@@ -9,7 +9,7 @@ const createProductSerializer = yup.object().shape({
 const returnedProductSerializer = yup.object().shape({
     id: yup.string(),
     name: yup.string(),
-    price: yup.string(),
+    price: yup.number(),
     category_id: yup.number().nullable()
 })
 const updateProductSerializer = yup.object().shape({

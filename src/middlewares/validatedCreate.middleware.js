@@ -11,9 +11,8 @@ const validateDataMiddleware = (schema) => async (request, response, next) => {
         request.validatedBody = validated;
         next()
     } catch (error) {
-        // console.log(error)
-        // return response.status(400).json({ message: error.message });
-        throw new AppError("erro no try catch", 501)
+        console.log(error)
+        throw new AppError({ message: error.message }, 400)
     }
 };
 

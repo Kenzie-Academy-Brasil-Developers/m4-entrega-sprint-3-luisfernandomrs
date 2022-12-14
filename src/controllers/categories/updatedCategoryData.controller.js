@@ -1,9 +1,9 @@
 import { updatedCategoryDataService } from "../../services/categories";
 
 const updatedCategoryDataController = async (request, response) => {
-  const { name } = request.validatedBody
+  //const { name } = request.validatedBody
   const { id } = request.params
-  const data = await updatedCategoryDataService(name, id);
+  const data = await updatedCategoryDataService(request.body.name, id);
   return response.status(200).json(data);
 };
 

@@ -9,8 +9,8 @@ const productsRoutes = Router()
 productsRoutes.post("", createProductController)
 productsRoutes.get("", listAllProductsController)
 productsRoutes.get("/:id", listProductByIdController)
-productsRoutes.patch("/:id", productExistsMiddleware, updateProductDataController)
-productsRoutes.delete("/:id", productExistsMiddleware, deleteProductController)
+productsRoutes.patch("/:id", updateProductDataController)
+productsRoutes.delete("/:id", deleteProductController)
 productsRoutes.get("/category/:id", productsCategoryController)
 
 

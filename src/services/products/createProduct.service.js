@@ -2,7 +2,7 @@ import { database } from "../../database";
 import { AppError } from "../../errors/appError";
 import { returnedProductSerializer } from "../../serializers/products/createProduct.serializer";
 
-const createProductService = async (body, category_id) => {
+const createProductService = async (body) => {
     // const queryResponse = await database.query(`
     // INSERT INTO 
     //     products(name, price, category_id)
@@ -29,7 +29,7 @@ const createProductService = async (body, category_id) => {
         VALUES 
            ( $1, $2, $3)
         RETURNING*;
-        `, [body.name, body.price, category_id]
+        `, [body.name, body.price, body.category_id]
         )
         const returnedProduct = await returnedProductSerializer.validate(
             queryResponse.rows[0],
