@@ -7,9 +7,8 @@ let testCategory = {
 
 let testProduct = {
   name: `Produto Teste ${Math.floor(Math.random() * 10001)}`,
-  price: `${Math.floor(Math.random() * 1001)}.${
-    Math.floor(Math.random() * 90) + 10
-  }`,
+  price: `${Math.floor(Math.random() * 1001)}.${Math.floor(Math.random() * 90) + 10
+    }`,
 };
 
 describe("Testes rota /categories", () => {
@@ -129,9 +128,8 @@ describe("Testando casos de erro nas rotas /categories e /products", () => {
 
   let testProduct = {
     name: `Produto Teste ${Math.floor(Math.random() * 10001)}`,
-    price: `${Math.floor(Math.random() * 1001)}.${
-      Math.floor(Math.random() * 90) + 10
-    }`,
+    price: `${Math.floor(Math.random() * 1001)}.${Math.floor(Math.random() * 90) + 10
+      }`,
   };
 
   it("Nao permite criacao de duas categorias com nomes iguais", async () => {
@@ -170,7 +168,6 @@ describe("Testando casos de erro nas rotas /categories e /products", () => {
 
   it("Nao permite listar uma categoria inexistente", async () => {
     const response = await request(app).get("/categories/id_test");
-
     expect(response.status).toBe(404);
     expect(response.body.message).toBeDefined();
   });
