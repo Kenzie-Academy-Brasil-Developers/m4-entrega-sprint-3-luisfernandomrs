@@ -5,10 +5,10 @@ class AppError extends Error {
     this.statusCode = statusCode;
   }
 }
-const dealWithAppError = (error, request, response) => {
-  console.log("oisabhsagdhsg")
+const dealWithAppError = async (error, request, response, next) => {
+
   if (error instanceof AppError) {
-    return response.status(error.statusCode).json({ mesage: error.message });
+    return response.status(error.statusCode).json({ message: error.message });
   }
   console.log(error)
   return response.status(500).json({ message: "internal server error" });

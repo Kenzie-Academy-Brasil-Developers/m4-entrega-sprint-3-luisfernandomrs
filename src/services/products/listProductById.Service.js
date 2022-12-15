@@ -16,11 +16,9 @@ const listProductByIdService = async (productId) => {
         throw new AppError("Product not found", 404)
     }
 
-    // console.log(productExists.rows[0])
+
     const productReturned = await returnedProductSerializer.validate(productExists.rows[0])
 
-    // console.log(productReturned)
-    // const teste = "teste"
     return productReturned
 
 }

@@ -18,6 +18,6 @@ const categoriesRoutes = Router();
 categoriesRoutes.post("", categoryExistsMiddleware, createCategoriesController);
 categoriesRoutes.get("", listAllsCategoriesController);
 categoriesRoutes.get("/:id", returnCategoryExistsMiddleware, returnsDataFromACategoryController);
-categoriesRoutes.patch("/:id", updatedCategoryDataController);
-categoriesRoutes.delete("/:id", deleteCategoryFromDataController);
+categoriesRoutes.patch("/:id", returnCategoryExistsMiddleware, updatedCategoryDataController);
+categoriesRoutes.delete("/:id", returnCategoryExistsMiddleware, deleteCategoryFromDataController);
 export default categoriesRoutes;

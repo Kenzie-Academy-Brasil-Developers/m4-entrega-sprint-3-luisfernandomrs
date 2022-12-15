@@ -8,7 +8,7 @@ const validateDataMiddleware = (schema) => async (request, response, next) => {
             stripUnknown: true,
         });
 
-        request.validatedBody = validated;
+        request.body = validated;
         next()
     } catch (error) {
         console.log(error)

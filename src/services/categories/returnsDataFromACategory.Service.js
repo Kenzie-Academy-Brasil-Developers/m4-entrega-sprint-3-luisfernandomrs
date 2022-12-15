@@ -12,6 +12,7 @@ const returnsDataFromACategoryService = async (id) => {
                 WHERE
                     id = $1;`, [id]
   );
+
   const returnedCategory = await returnedCategoriesSerializer.validate(
     queryResponse.rows[0],
     {

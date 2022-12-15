@@ -2,31 +2,31 @@
 import { database } from "../database";
 import { AppError } from "../errors/appError";
 
-const returnCategoryExistsMiddleware = async (request, response, next) => {
-    const categoryId = request.params.id
+const returnProductExistsMiddleware = async (request, response, next) => {
+    const productId = request.params.id
     try {
 
 
-        const categoryExists = await database.query(
+        const productExists = await database.query(
             `
                     SELECT 
                         *
                         FROM
-                            categories
+                            products
                         WHERE
                             id = $1;`,
-            [categoryId]
+            [productId]
         );
-
-        if (categoryExists.rowCount === 0) {
+        if (productExists.rowCount === 0) {
             throw new AppError("category not found", 404);
         }
 
         next()
     } catch (error) {
+
         throw new AppError(error.message, 404);
     }
 
 }
 
-export { returnCategoryExistsMiddleware }
+export { returnProductExistsMiddleware }

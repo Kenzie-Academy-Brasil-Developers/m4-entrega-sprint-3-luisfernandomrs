@@ -17,27 +17,6 @@ const categoryExistsMiddleware = async (request, response, next) => {
 
     return next()
 
-    // try {
-    //     const categoryName = request.body.name
-    //     console.log(categoryName)
-    //     const categoryExists = await database.query(
-    //         ` SELECT 
-    //         *
-    //         FROM
-    //             categories
-    //         WHERE
-    //             "name" = $1;`, [categoryName]
-    //     );
-    //     if (categoryExists.rowCount === 0) {
-    //         return next()
-    //     }
-
-
-    // } catch (error) {
-    //     throw new AppError("category already exists", 409);
-    // }
-
-
 }
 
 export { categoryExistsMiddleware }

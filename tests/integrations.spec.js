@@ -168,7 +168,6 @@ describe("Testando casos de erro nas rotas /categories e /products", () => {
 
   it("Nao permite listar uma categoria inexistente", async () => {
     const response = await request(app).get("/categories/id_test");
-    console.log(response.body)
     expect(response.status).toBe(404);
     expect(response.body.message).toBeDefined();
   });
