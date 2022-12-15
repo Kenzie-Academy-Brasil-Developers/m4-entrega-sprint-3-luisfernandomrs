@@ -11,7 +11,7 @@ const validateDataMiddleware = (schema) => async (request, response, next) => {
         request.body = validated;
         next()
     } catch (error) {
-        console.log(error)
+
         throw new AppError({ message: error.message }, 400)
     }
 };
